@@ -1,0 +1,2 @@
+# Noridc
+AutoTest
