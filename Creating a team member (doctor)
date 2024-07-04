@@ -1,0 +1,64 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+//библиотеки ожидания
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class Main {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Maven\\Selenium\\asd\\chromedriver.exe");
+//подключаю ChromeDriver(), захожу на сайт и перехожу в личный кабинет
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://nordiccamp.ru");
+        WebElement input = driver.findElement(By.linkText("Личный кабинет"));
+        input.click();
+//ишу поле ввода логина и ввожу значения.
+        WebElement loginField = driver.findElement(By.id("login"));
+        loginField.sendKeys("test2");
+
+
+//ищу поле ввода пароля, ввожу значения.
+        WebElement passwordField = driver.findElement((By.id("password")));
+        passwordField.sendKeys("Nn9oeZe9O");
+//клик по кнопке входа
+        WebElement button = driver.findElement(By.xpath("//button[@class='btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800']"));
+        button.click();
+        //ищу кнопку "команда", жду 3 секунды и кликаю
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+     WebElement button2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//html/body/div[3]/div/div/a")));
+        button2.click();
+
+        //клик по кнопке "Добавить нового"
+        WebElement AddNew = driver.findElement(By.xpath("//html/body/div[3]/div/div/button"));
+        AddNew.click();
+
+        //Поле ввода name
+        WebElement name = driver.findElement(By.xpath("//*[@id=\"name\"]"));
+        name.sendKeys("autotest");
+
+        //Поле ввода password
+        WebElement lastName = driver.findElement(By.xpath("//*[@id=\"surname\"]"));
+        lastName.sendKeys("autotest");
+
+        //Поле ввода description
+        WebElement description = driver.findElement(By.xpath("//*[@id=\"about\"]"));
+        description.sendKeys("я сделал автотест:)");
+
+        //Нажать на кнопку role
+
+        WebElement role = driver.findElement(By.xpath("//*[@id=\"role\"]"));
+        role.click();
+
+        //Выбрать role!
+        WebDriverWait wite = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement role4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"role\"]/option[4]")));
+        role4.click();
+
+        //создать участника
+        WebElement create = driver.findElement(By.xpath("//*[@id=\"addTeam\"]/button"));
+        create.click();
+    }
+}
