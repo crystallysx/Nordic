@@ -39,7 +39,7 @@ public class Main {
         WebElement name = driver.findElement(By.xpath("//*[@id=\"name\"]"));
         name.sendKeys("autotest");
 
-        //Поле ввода password
+        //Поле ввода lastName
         WebElement lastName = driver.findElement(By.xpath("//*[@id=\"surname\"]"));
         lastName.sendKeys("autotest");
 
