@@ -31,23 +31,23 @@ public class Main {
      WebElement button2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//html/body/div[3]/div/div/a")));
         button2.click();
 
-        //клик по кнопке "Добавить нового"
+//клик по кнопке "Добавить нового"
         WebElement AddNew = driver.findElement(By.xpath("//html/body/div[3]/div/div/button"));
         AddNew.click();
 
-        //Поле ввода name
+//Поле ввода name
         WebElement name = driver.findElement(By.xpath("//*[@id=\"name\"]"));
         name.sendKeys("autotest");
 
-        //Поле ввода lastName
+//Поле ввода lastName
         WebElement lastName = driver.findElement(By.xpath("//*[@id=\"surname\"]"));
         lastName.sendKeys("autotest");
 
-        //Поле ввода description
+//Поле ввода description
         WebElement description = driver.findElement(By.xpath("//*[@id=\"about\"]"));
         description.sendKeys("я сделал автотест:)");
 
-        //Нажать на кнопку role
+//Нажать на кнопку role
 
         WebElement role = driver.findElement(By.xpath("//*[@id=\"role\"]"));
         role.click();
@@ -57,7 +57,12 @@ public class Main {
         WebElement role4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"role\"]/option[4]")));
         role4.click();
 
-        //создать участника
+//Добавить фото
+
+        By fileInput = By.cssSelector("#file_input");
+           String filePath = "C:\\Users\\dotar\\Downloads\\Canada_Parks_Lake_Mountains_Forests_Scenery_Rocky_567540_3840x2400.jpg";
+
+//создать участника
         WebElement create = driver.findElement(By.xpath("//*[@id=\"addTeam\"]/button"));
         create.click();
     }
